@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yousef Abu-Salah - Welcome</title>
+    <title>Yousef Abu-Salah</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -14,240 +12,1007 @@
         }
         
         body {
-            font-family: 'Courier Prime', monospace;
-            background: #f5f5f5;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #e5e5e5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 40px;
+            left: 60px;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease;
+        }
+        
+        nav a:hover {
+            opacity: 0.6;
+        }
+        
+        nav a.active {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        
+        /* Page Container */
+        .page {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        
+        .page.active {
+            display: flex;
+        }
+        
+        /* Home Page Styles */
+        .home-container {
+            display: flex;
+            padding: 120px 60px 40px;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        
+        .home-right-column {
+            max-width: 500px;
+        }
+        
+        h2 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .content {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #000;
+        }
+        
+        .date-range {
+            margin-top: 8px;
+        }
+        
+        .footer {
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        .main-title {
+            font-size: 48px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info .email {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .contact-info .credits {
+            font-size: 10px;
+            line-height: 1.3;
+            color: #000;
+            font-style: italic;
+        }
+        
+        /* About Page */
+        .about-container {
+            padding: 120px 60px 60px;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        
+        .about-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .about-image-container {
+            flex: 0 0 35%;
+            position: sticky;
+            top: 120px;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #000;
+            margin-bottom: 40px;
+        }
+        
+        /* Work Page */
+        .work-container {
+            padding: 120px 60px 60px;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .work-item {
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .work-item:hover {
+            opacity: 0.8;
+        }
+        
+        .work-image-container {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
-        
-        .typewriter-container {
-            background: #ffffff;
-            width: 90%;
-            max-width: 800px;
-            min-height: 500px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            border-radius: 12px;
-            padding: 60px;
-            position: relative;
-            border: 1px solid #e0e0e0;
-        }
-        
-        .paper-lines {
-            position: absolute;
-            top: 0;
-            left: 60px;
-            right: 60px;
-            bottom: 0;
-            background-image: repeating-linear-gradient(
-                transparent,
-                transparent 28px,
-                #e8e8e8 28px,
-                #e8e8e8 30px
-            );
-            pointer-events: none;
-            opacity: 0.3;
-        }
-        
-        .typewriter-content {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #333;
-            position: relative;
-            z-index: 2;
             min-height: 300px;
         }
         
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            height: 1.2em;
-            background: #333;
-            animation: blink 1s infinite;
-            vertical-align: text-bottom;
-            margin-left: 2px;
+        .work-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
         
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .work-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
         
-        .fade-overlay {
+        .work-year {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #f5f5f5;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 2s ease;
-            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
         }
         
-        .fade-overlay.active {
-            opacity: 1;
+        .lightbox.active {
+            display: flex;
         }
         
-        /* Subtle typewriter sounds visualization */
-        .sound-indicator {
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+        }
+        
+        .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #4a90e2;
-            opacity: 0;
-            animation: soundPulse 0.1s ease;
-        }
-        
-        @keyframes soundPulse {
-            0% { opacity: 0; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
-            100% { opacity: 0; transform: scale(1); }
-        }
-        
-        /* Paper texture */
-        .typewriter-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+            top: -40px;
             right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, transparent 20%, rgba(255,255,255,0.3) 21%, rgba(255,255,255,0.3) 34%, transparent 35%, transparent),
-                linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%, transparent);
-            border-radius: 12px;
-            pointer-events: none;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
         
+        .lightbox-caption {
+            color: #fff;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        
+        /* Prints Page */
+        .prints-container {
+            padding: 120px 60px 60px;
+        }
+        
+        .prints-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .print-item {
+            background: #fff;
+            padding: 20px;
+        }
+        
+        .print-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .print-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .print-price {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .print-button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .print-button:hover {
+            opacity: 0.8;
+        }
+        
+        /* Press Page */
+        .press-container {
+            padding: 120px 60px 60px;
+            max-width: 1000px;
+        }
+        
+        .press-item {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .press-item:last-child {
+            border-bottom: none;
+        }
+        
+        .press-publication {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .press-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .press-date {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .press-excerpt {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .press-link {
+            color: #000;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+        }
+        
+        .press-link:hover {
+            opacity: 0.6;
+        }
+        
+        /* Living Story Page */
+        .story-container {
+            padding: 120px 60px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-header {
+            margin-bottom: 40px;
+        }
+        
+        .story-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .story-description {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .submission-counter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .counter-bar {
+            flex: 1;
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .counter-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .counter-text {
+            font-size: 11px;
+            font-weight: 600;
+            color: #000;
+            min-width: 100px;
+        }
+        
+        .story-content {
+            background: #fff;
+            padding: 40px;
+            margin-bottom: 40px;
+            min-height: 300px;
+        }
+        
+        .story-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #000;
+            white-space: pre-wrap;
+        }
+        
+        .story-prompt {
+            background: #f8f8f8;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .prompt-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .prompt-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #000;
+            font-style: italic;
+        }
+        
+        .submission-form {
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            font-family: inherit;
+            background: #fafafa;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .char-counter {
+            font-size: 10px;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .form-submit {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            opacity: 0.8;
+        }
+        
+        .form-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .submission-notice {
+            font-size: 10px;
+            color: #666;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .story-status {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #667eea;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+        
+        .story-status.complete {
+            background: #4caf50;
+        }
+        
+        .story-status.waiting {
+            background: #ff9800;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .typewriter-container {
-                width: 95%;
-                padding: 40px 30px;
-                min-height: 400px;
+            nav {
+                left: 30px;
+                top: 30px;
             }
             
-            .typewriter-content {
-                font-size: 16px;
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .home-container {
+                padding: 120px 30px 30px;
+                justify-content: center;
+            }
+            
+            .about-container {
+                flex-direction: column;
+                padding: 120px 30px 30px;
+            }
+            
+            .about-content {
+                max-width: 100%;
+            }
+            
+            .about-image-container {
+                position: static;
+                width: 100%;
+            }
+            
+            .story-container {
+                padding: 120px 30px 30px;
+            }
+            
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+                gap: 30px;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .contact-info {
+                text-align: left;
+            }
+            
+            .about-container,
+            .work-container,
+            .prints-container,
+            .press-container {
+                padding: 120px 30px 30px;
+            }
+            
+            .work-grid,
+            .prints-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="typewriter-container">
-        <div class="paper-lines"></div>
-        <div class="sound-indicator" id="soundIndicator"></div>
-        <div class="typewriter-content" id="typewriterText"></div>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link active" data-page="home">HOME</a></li>
+            <li><a href="#about" class="nav-link" data-page="about">ABOUT</a></li>
+            <li><a href="#work" class="nav-link" data-page="work">WORK</a></li>
+            <li><a href="#story" class="nav-link" data-page="story">LIVING STORY</a></li>
+            <li><a href="#prints" class="nav-link" data-page="prints">PRINTS</a></li>
+            <li><a href="#press" class="nav-link" data-page="press">PRESS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <div class="home-container">
+            <div class="home-right-column">
+                <div class="section">
+                    <h2>ORIGIN</h2>
+                    <div class="content">
+                        Born on April 18, 2000 in Brandon, Mississippi.<br>
+                        Currently traveling the world and drawing manga of refugee stories.
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>EDUCATION</h2>
+                    <div class="content">
+                        Vanderbilt University<br>
+                        Nashville, TN
+                        <div class="date-range">2018 - 2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h1 class="main-title">YOUSEF ABU-SALAH</h1>
+            <div class="contact-info">
+                <div class="email">yousefabusalah@gmail.com</div>
+                <div class="credits">
+                    All the world to:<br>
+                    My beautiful family.
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="fade-overlay" id="fadeOverlay"></div>
-    
+
+    <!-- About Page -->
+    <div class="page" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>ABOUT</h2>
+                <div class="about-text">
+                    <p>Yousef Abu-Salah is a visual storyteller and manga artist dedicated to amplifying refugee narratives through sequential art. Born in Brandon, Mississippi, and educated at Vanderbilt University, his work bridges Eastern and Western artistic traditions to create powerful visual testimonies of displacement and resilience.</p>
+                    <br>
+                    <p>Currently traveling across continents, Yousef documents and illustrates the stories of displaced communities, transforming personal testimonies into compelling manga narratives. His unique approach combines journalistic rigor with artistic sensitivity, creating works that honor the complexity of refugee experiences while making them accessible to global audiences.</p>
+                    <br>
+                    <p>Through his art, Yousef explores themes of identity, belonging, and the universal human desire for home. Each piece serves as both historical document and artistic expression, preserving stories that might otherwise go untold. His work has been featured in various exhibitions and publications, contributing to important conversations about migration, human rights, and the power of visual narrative.</p>
+                    <br>
+                    <p>When not drawing, Yousef continues to engage with communities around the world, learning languages, sharing meals, and listening to stories that inform and inspire his artistic practice.</p>
+                </div>
+            </div>
+            
+            <div class="about-image-container">
+                <!-- Replace this placeholder with your actual image -->
+                <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 14px;">
+                    Your Image Here
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Work Page -->
+    <div class="page" id="work">
+        <div class="work-container">
+            <h2>SELECTED WORKS</h2>
+            <div class="work-grid">
+                <div class="work-item" onclick="openLightbox('Journey to Tirana', '2024', 'Mixed media on paper')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    </div>
+                    <div class="work-title">Journey to Tirana</div>
+                    <div class="work-year">2024</div>
+                </div>
+                
+                <div class="work-item" onclick="openLightbox('Voices from the Border', '2024', 'Digital illustration')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    </div>
+                    <div class="work-title">Voices from the Border</div>
+                    <div class="work-year">2024</div>
+                </div>
+                
+                <div class="work-item" onclick="openLightbox('Children of the Camp', '2023', 'Ink on paper')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    </div>
+                    <div class="work-title">Children of the Camp</div>
+                    <div class="work-year">2023</div>
+                </div>
+                
+                <div class="work-item" onclick="openLightbox('São Paulo Stories', '2023', 'Manga series')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                    </div>
+                    <div class="work-title">São Paulo Stories</div>
+                    <div class="work-year">2023</div>
+                </div>
+                
+                <div class="work-item" onclick="openLightbox('Memories of Home', '2023', 'Watercolor')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    </div>
+                    <div class="work-title">Memories of Home</div>
+                    <div class="work-year">2023</div>
+                </div>
+                
+                <div class="work-item" onclick="openLightbox('Crossing Waters', '2022', 'Graphite on paper')">
+                    <div class="work-image-container">
+                        <div style="width: 100%; height: 250px; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                    </div>
+                    <div class="work-title">Crossing Waters</div>
+                    <div class="work-year">2022</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Living Story Page -->
+    <div class="page" id="story">
+        <div class="story-container">
+            <div class="story-header">
+                <h2>LIVING STORY</h2>
+                <div class="story-title">The Journey We Share</div>
+                <div class="story-description">
+                    A collaborative narrative built by our community. Each contribution adds to our collective story of displacement, resilience, and hope. 
+                    Together, we're creating a testament to the human experience of seeking home.
+                </div>
+            </div>
+            
+            <div class="submission-counter">
+                <div class="counter-text">
+                    <span id="submission-count">12</span> / 100 submissions
+                </div>
+                <div class="counter-bar">
+                    <div class="counter-fill" id="counter-fill" style="width: 12%;"></div>
+                </div>
+            </div>
+            
+            <div class="story-status waiting">AWAITING NEXT CHAPTER</div>
+            
+            <div class="story-content">
+                <div class="story-text" id="story-text">The boat rocked gently against the Mediterranean waves. Sarah clutched her daughter's hand, feeling the small fingers tremble—not from cold, but from the same uncertainty that gripped every soul aboard. Forty-three strangers bound by a single hope: that tomorrow would find them on solid ground.
+
+"Mama, will we see the stars tonight?" Amira whispered.
+
+Sarah looked up. Despite everything, the stars remained constant—the same constellations her grandmother had taught her, now guiding them toward an unknown shore. "Yes, habibti. The stars are coming with us."
+
+Behind them, an old man began humming a melody Sarah recognized from her childhood. One by one, others joined in, their voices creating a fragile harmony against the vast darkness of the sea...</div>
+            </div>
+            
+            <div class="story-prompt">
+                <div class="prompt-label">CURRENT PROMPT</div>
+                <div class="prompt-text">
+                    Continue the story from any perspective—another passenger on the boat, someone waiting on the shore, or a memory that surfaces in this moment. What happens in the next breath of this journey?
+                </div>
+            </div>
+            
+            <div class="submission-form">
+                <div class="form-title">ADD YOUR VOICE</div>
+                <form id="story-form">
+                    <div class="form-group">
+                        <label class="form-label" for="contributor-name">Your Name (or Anonymous)</label>
+                        <input type="text" class="form-input" id="contributor-name" placeholder="How you'd like to be credited">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="contribution">Your Continuation</label>
+                        <textarea class="form-textarea" id="contribution" maxlength="500" placeholder="Continue our story... (max 500 characters)" required></textarea>
+                        <div class="char-counter"><span id="char-count">0</span> / 500</div>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">SUBMIT CONTRIBUTION</button>
+                </form>
+                
+                <div class="submission-notice">
+                    All submissions are reviewed before being added to the story. Once we reach 100 submissions, I'll select and illustrate the next chapter. 
+                    Your contribution may be edited for length and clarity while maintaining your voice and intent.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prints Page -->
+    <div class="page" id="prints">
+        <div class="prints-container">
+            <h2>AVAILABLE PRINTS</h2>
+            <div class="prints-grid">
+                <div class="print-item">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="print-title">Journey to Tirana</div>
+                    <div class="print-price">$150 - Limited Edition</div>
+                    <button class="print-button">INQUIRE</button>
+                </div>
+                
+                <div class="print-item">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="print-title">Voices from the Border</div>
+                    <div class="print-price">$120 - Open Edition</div>
+                    <button class="print-button">INQUIRE</button>
+                </div>
+                
+                <div class="print-item">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="print-title">Children of the Camp</div>
+                    <div class="print-price">$200 - Limited Edition</div>
+                    <button class="print-button">INQUIRE</button>
+                </div>
+                
+                <div class="print-item">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                    <div class="print-title">São Paulo Stories (Set)</div>
+                    <div class="print-price">$350 - Complete Series</div>
+                    <button class="print-button">INQUIRE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Press Page -->
+    <div class="page" id="press">
+        <div class="press-container">
+            <h2>PRESS & PUBLICATIONS</h2>
+            
+            <div class="press-item">
+                <div class="press-publication">THE ART NEWSPAPER</div>
+                <div class="press-title">Drawing Displaced Lives: Yousef Abu-Salah's Manga Revolution</div>
+                <div class="press-date">December 2024</div>
+                <div class="press-excerpt">
+                    "Abu-Salah's work represents a groundbreaking fusion of manga aesthetics with documentary storytelling, creating a new visual language for refugee narratives that resonates across cultural boundaries..."
+                </div>
+                <a href="#" class="press-link">Read Full Article →</a>
+            </div>
+            
+            <div class="press-item">
+                <div class="press-publication">ARTFORUM</div>
+                <div class="press-title">Beyond Borders: The Sequential Art of Displacement</div>
+                <div class="press-date">October 2024</div>
+                <div class="press-excerpt">
+                    "Through his traveling practice, Abu-Salah has developed a unique methodology that combines ethnographic fieldwork with artistic interpretation, resulting in works that are both deeply personal and universally relevant..."
+                </div>
+                <a href="#" class="press-link">Read Full Article →</a>
+            </div>
+            
+            <div class="press-item">
+                <div class="press-publication">HYPERALLERGIC</div>
+                <div class="press-title">Manga as Testimony: An Interview with Yousef Abu-Salah</div>
+                <div class="press-date">August 2024</div>
+                <div class="press-excerpt">
+                    "In this exclusive interview, Abu-Salah discusses his journey from Mississippi to the refugee camps of Europe and Latin America, and how manga became his medium for preserving and sharing stories of displacement..."
+                </div>
+                <a href="#" class="press-link">Read Full Article →</a>
+            </div>
+            
+            <div class="press-item">
+                <div class="press-publication">FRIEZE</div>
+                <div class="press-title">The Visual Anthropology of Yousef Abu-Salah</div>
+                <div class="press-date">June 2024</div>
+                <div class="press-excerpt">
+                    "Abu-Salah's practice challenges traditional boundaries between art and activism, creating works that function simultaneously as aesthetic objects and historical documents..."
+                </div>
+                <a href="#" class="press-link">Read Full Article →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div style="width: 600px; height: 400px; background: #fff; display: flex; align-items: center; justify-content: center;">
+                <div id="lightbox-placeholder" style="width: 90%; height: 90%;"></div>
+            </div>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
     <script>
-        const messages = [
-            "Hi! My name is Yousef.",
-            "",
-            "Welcome to my world.",
-            "",
-            "I'm a photographer and storyteller.",
-            "",
-            "This is where my real experiences become fantastical narratives.",
-            "",
-            "Every story begins with something that actually happened to me...",
-            "",
-            "...then transforms through the voices of contributors like you.",
-            "",
-            "Ready to enter?",
-        ];
+        // Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
         
-        let currentMessageIndex = 0;
-        let currentCharIndex = 0;
-        let isTyping = true;
-        const typewriterElement = document.getElementById('typewriterText');
-        const soundIndicator = document.getElementById('soundIndicator');
-        const fadeOverlay = document.getElementById('fadeOverlay');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links and pages
+                navLinks.forEach(l => l.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked link and corresponding page
+                link.classList.add('active');
+                const pageId = link.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
         
-        function showSoundIndicator() {
-            soundIndicator.style.animation = 'none';
-            soundIndicator.offsetHeight; // Trigger reflow
-            soundIndicator.style.animation = 'soundPulse 0.1s ease';
+        // Lightbox
+        function openLightbox(title, year, medium) {
+            const lightbox = document.getElementById('lightbox');
+            const caption = document.getElementById('lightbox-caption');
+            const placeholder = document.getElementById('lightbox-placeholder');
+            
+            // Create a gradient for the placeholder
+            const gradients = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+            ];
+            
+            placeholder.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+            caption.innerHTML = `<strong>${title}</strong><br>${year} · ${medium}`;
+            lightbox.classList.add('active');
         }
         
-        function typeMessage() {
-            if (currentMessageIndex >= messages.length) {
-                // All messages typed, wait then fade to next page
-                setTimeout(() => {
-                    fadeToNextPage();
-                }, 1000);
-                return;
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
             }
-            
-            const currentMessage = messages[currentMessageIndex];
-            
-            if (currentCharIndex <= currentMessage.length) {
-                const displayText = messages.slice(0, currentMessageIndex).join('\n') + 
-                    (currentMessageIndex > 0 ? '\n' : '') + 
-                    currentMessage.slice(0, currentCharIndex);
-                
-                typewriterElement.innerHTML = displayText + '<span class="cursor"></span>';
-                
-                if (currentCharIndex < currentMessage.length && currentMessage[currentCharIndex] !== ' ') {
-                    showSoundIndicator();
+        });
+        
+        // Close lightbox on click outside
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeLightbox();
+            }
+        });
+        
+        // Print inquiries
+        document.querySelectorAll('.print-button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Please email yousefabusalah@gmail.com for print inquiries.');
+            });
+        });
+        
+        // Living Story Form
+        const contributionTextarea = document.getElementById('contribution');
+        const charCount = document.getElementById('char-count');
+        const storyForm = document.getElementById('story-form');
+        
+        if (contributionTextarea) {
+            contributionTextarea.addEventListener('input', () => {
+                const length = contributionTextarea.value.length;
+                charCount.textContent = length;
+                if (length > 450) {
+                    charCount.style.color = '#ff6b6b';
+                } else {
+                    charCount.style.color = '#666';
                 }
-                
-                currentCharIndex++;
-                
-                // Faster typing speed for web experience
-                const speed = currentMessage[currentCharIndex - 1] === ' ' ? 30 : Math.random() * 40 + 20;
-                setTimeout(typeMessage, speed);
-            } else {
-                // Message complete, move to next
-                currentMessageIndex++;
-                currentCharIndex = 0;
-                
-                // Shorter pause between messages
-                setTimeout(typeMessage, currentMessageIndex < messages.length ? 300 : 800);
-            }
+            });
         }
         
-        function fadeToNextPage() {
-            fadeOverlay.classList.add('active');
-            setTimeout(() => {
-                // Navigate to story page
-                window.location.href = 'story.html';
-            }, 2000);
+        if (storyForm) {
+            storyForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('contributor-name').value || 'Anonymous';
+                const contribution = document.getElementById('contribution').value;
+                
+                // Here you would normally send this to a backend
+                // For now, we'll just show a confirmation
+                alert(`Thank you for your contribution! Your submission has been received and will be reviewed.\n\nContributor: ${name}\nSubmission length: ${contribution.length} characters`);
+                
+                // Update the counter (this would normally come from the backend)
+                const currentCount = parseInt(document.getElementById('submission-count').textContent);
+                const newCount = currentCount + 1;
+                document.getElementById('submission-count').textContent = newCount;
+                
+                // Update the progress bar
+                const percentage = (newCount / 100) * 100;
+                document.getElementById('counter-fill').style.width = percentage + '%';
+                
+                // Clear the form
+                storyForm.reset();
+                charCount.textContent = '0';
+                
+                // If we've reached 100 submissions
+                if (newCount >= 100) {
+                    document.querySelector('.story-status').textContent = 'REVIEWING SUBMISSIONS';
+                    document.querySelector('.story-status').classList.remove('waiting');
+                    document.querySelector('.story-status').classList.add('complete');
+                    document.querySelector('.form-submit').disabled = true;
+                    document.querySelector('.form-submit').textContent = 'SUBMISSIONS CLOSED';
+                }
+            });
         }
-        
-        // Start typing when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Page loaded, starting typewriter');
-            setTimeout(typeMessage, 500);
-        });
-        
-        // Fallback - also try starting after window loads
-        window.addEventListener('load', function() {
-            if (currentMessageIndex === 0 && currentCharIndex === 0) {
-                console.log('Fallback start');
-                setTimeout(typeMessage, 100);
-            }
-        });
-        
-        // Allow clicking anywhere to speed up or skip
-        document.addEventListener('click', function() {
-            if (currentMessageIndex < messages.length - 1) {
-                // Speed up typing
-                currentMessageIndex = messages.length - 2;
-                currentCharIndex = messages[currentMessageIndex].length;
-            } else {
-                // Skip to fade
-                fadeToNextPage();
-            }
-        });
     </script>
 </body>
 </html>
